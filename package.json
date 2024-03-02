@@ -1,0 +1,18 @@
+{
+	"name": "project-02",
+	"version": "1.0.0",
+	"description": "This is Short URL service",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"author": "Akash Gautam",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.3",
+		"mongoose": "^8.2.0",
+		"nanoid": "^5.0.6",
+		"nodemon": "^3.1.0",
+		"shortid": "^2.2.16"
+	}
+}
