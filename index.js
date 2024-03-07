@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const { connectToMongoDB } = require("./connect");
 const URL = require("./models/url.model");
-const { restrictToLoggedinUserOnly } = require("./middleware/auth");
+const { restrictToLoggedinUserOnly, checkAuth } = require("./middleware/auth");
 const PORT = 8000;
 
 const urlRoute = require("./routes/url.route");
@@ -32,7 +32,7 @@ connectToMongoDB("mongodb://localhost/short-url").then(() => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use("/", staticRoute);
+app.use("/", checkAuth, staticRoute);
 app.use("/url", restrictToLoggedinUserOnly, urlRoute);
 app.use("/user", userRoute);
 
