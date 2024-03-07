@@ -1,1 +1,1 @@
-# This repo contain a project which shoten the url of any url
+# This Repository contain a project which convert the url into shorten length.
