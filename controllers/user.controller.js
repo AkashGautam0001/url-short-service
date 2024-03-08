@@ -30,13 +30,13 @@ async function handleUserSLogin(req, res) {
 	// res.cookie("uid", sessionId);
 
 	//stateless auth
-	// const token = setUser(user);
-	// res.cookie("uid", token);
-	// return res.redirect("/");
+	const token = setUser(user);
+	res.cookie("token", token);
+	return res.redirect("/");
 
 	//token authorization
-	const token = setUser(user);
-	return res.json({ token });
+	// const token = setUser(user);
+	// return res.json({ token });
 }
 
 module.exports = {
