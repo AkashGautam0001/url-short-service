@@ -23,10 +23,20 @@ async function handleUserSLogin(req, res) {
 		return res.render("login", {
 			error: "Invalid Username or Password",
 		});
-	const sessionId = uuidv4();
-	setUser(sessionId, user);
-	res.cookie("uid", sessionId);
-	return res.redirect("/");
+
+	//statefull auth
+	// const sessionId = uuidv4();
+	// setUser(sessionId, user);
+	// res.cookie("uid", sessionId);
+
+	//stateless auth
+	// const token = setUser(user);
+	// res.cookie("uid", token);
+	// return res.redirect("/");
+
+	//token authorization
+	const token = setUser(user);
+	return res.json({ token });
 }
 
 module.exports = {
